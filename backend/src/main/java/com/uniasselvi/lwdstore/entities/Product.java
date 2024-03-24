@@ -1,11 +1,17 @@
 package com.uniasselvi.lwdstore.entities;
 
-import java.util.Objects;
+import jakarta.persistence.*;
 
+import java.util.Objects;
+@Entity
+@Table(name = "tb_product")
 public class Product {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(columnDefinition = "TEXT")
     private String description;
     private Double price;
     private String imageUrl;
@@ -13,7 +19,12 @@ public class Product {
     private boolean available;
     private boolean saleOff;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
     public Product() {

@@ -1,15 +1,23 @@
 package com.uniasselvi.lwdstore.entities;
 
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+@Entity
+@Table(name = "tb_brand")
 public class Brand {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String imageUrl;
 
-    private List<Product> products = new ArrayList<>();
+    @OneToMany(mappedBy = "brand")
+    private Set<Product> products = new HashSet<>();
 
     public Brand() {
     }
@@ -44,11 +52,7 @@ public class Brand {
         this.imageUrl = imageUrl;
     }
 
-    public List<Product> getProducts() {
+    public Set<Product> getProducts() {
         return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
     }
 }
