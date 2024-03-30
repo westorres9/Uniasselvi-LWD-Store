@@ -19,5 +19,5 @@ public class CategoryService {
     public Page<CategoryDTO> findAllPaged(Pageable pageable){
         Page<Category> categories = categoryRepository.findAll(pageable);
         return categories.map(category -> new CategoryDTO(category));
-    } 
+    }
 }
