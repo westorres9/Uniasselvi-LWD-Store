@@ -10,7 +10,9 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String sku;
     private String name;
+    
     @Column(columnDefinition = "TEXT")
     private String description;
     private Double price;
@@ -29,27 +31,41 @@ public class Product {
 
     public Product() {
     }
+    
+    public Product(Long id, String sku, String name, String description, Double price, String imageUrl,
+			Integer unitsInStock, boolean available, boolean saleOff, Category category, Brand brand) {
+		this.id = id;
+		this.sku = sku;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.imageUrl = imageUrl;
+		this.unitsInStock = unitsInStock;
+		this.available = available;
+		this.saleOff = saleOff;
+		this.category = category;
+		this.brand = brand;
+	}
 
-    public Product(long id, String name, String description, Double price, String imageUrl, Integer unitsInStock, boolean available, boolean saleOff) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.imageUrl = imageUrl;
-        this.unitsInStock = unitsInStock;
-        this.available = available;
-        this.saleOff = saleOff;
-    }
 
-    public long getId() {
+
+	public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
     }
+    
+    public String getSku() {
+		return sku;
+	}
+    
+	public void setSku(String sku) {
+		this.sku = sku;
+	}
 
-    public String getName() {
+	public String getName() {
         return name;
     }
 
