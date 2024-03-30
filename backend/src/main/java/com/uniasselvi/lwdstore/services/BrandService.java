@@ -6,6 +6,7 @@ import com.uniasselvi.lwdstore.repositories.BrandRepository;
 import com.uniasselvi.lwdstore.services.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,19 @@ public class BrandService {
         }
         catch (EntityNotFoundException e) {
             throw new ResourceNotFoundException("Id não encontrado");
+        }
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        if (!brandRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Id não encontrado");
+        }
+        try {
+
+        }
+        catch (DataIntegrityViolationException e) {
+
         }
     }
 }
