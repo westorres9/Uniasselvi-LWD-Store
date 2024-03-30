@@ -3,6 +3,7 @@ package com.uniasselvi.lwdstore.services;
 import com.uniasselvi.lwdstore.dto.BrandDTO;
 import com.uniasselvi.lwdstore.entities.Brand;
 import com.uniasselvi.lwdstore.repositories.BrandRepository;
+import com.uniasselvi.lwdstore.services.exceptions.DatabaseException;
 import com.uniasselvi.lwdstore.services.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
@@ -56,16 +58,16 @@ public class BrandService {
         }
     }
 
-    @Transactional
+    @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
         if (!brandRepository.existsById(id)) {
             throw new ResourceNotFoundException("Id não encontrado");
         }
         try {
-
+            brandRepository.deleteById(id);
         }
         catch (DataIntegrityViolationException e) {
-
+            throw new DatabaseException("Violação de integridade referencial");
         }
     }
 }
