@@ -3,6 +3,8 @@ package com.uniasselvi.lwdstore.dto;
 import com.uniasselvi.lwdstore.entities.User;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDTO {
 
@@ -14,7 +16,6 @@ public class UserDTO {
     private String password;
     private String phoneNumber;
     private LocalDate birthDate;
-
     public UserDTO() {
     }
 
