@@ -1,6 +1,7 @@
 package com.uniasselvi.lwdstore.controller;
 
 import com.uniasselvi.lwdstore.dto.UserDTO;
+import com.uniasselvi.lwdstore.dto.UserInsertDTO;
 import com.uniasselvi.lwdstore.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,20 +33,20 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDTO> insert(@RequestBody UserDTO dto) {
-        dto = userService.insert(dto);
+    public ResponseEntity<UserDTO> insert(@RequestBody UserInsertDTO dto) {
+        UserDTO newdto = userService.insert(dto);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(dto.getId())
                 .toUri();
-        return ResponseEntity.created(uri).body(dto);
+        return ResponseEntity.created(uri).body(newdto);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<UserDTO> update(@PathVariable Long id, @RequestBody UserDTO dto) {
-        dto = userService.update(id, dto);
-        return ResponseEntity.ok().body(dto);
+    public ResponseEntity<UserDTO> update(@PathVariable Long id, @RequestBody UserInsertDTO dto) {
+        UserDTO newdto = userService.update(id, dto);
+        return ResponseEntity.ok().body(newdto);
     }
 
     @DeleteMapping(value = "/{id}")

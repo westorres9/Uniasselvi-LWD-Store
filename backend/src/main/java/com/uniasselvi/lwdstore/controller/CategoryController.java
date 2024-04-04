@@ -13,7 +13,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping(value = "/categorias")
+@RequestMapping(value = "/categories")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;

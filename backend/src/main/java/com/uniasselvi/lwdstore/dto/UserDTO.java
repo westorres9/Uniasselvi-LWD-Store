@@ -1,10 +1,12 @@
 package com.uniasselvi.lwdstore.dto;
 
+import com.uniasselvi.lwdstore.entities.Role;
 import com.uniasselvi.lwdstore.entities.User;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class UserDTO {
 
@@ -12,19 +14,18 @@ public class UserDTO {
     private String firstName;
     private String lastName;
     private String email;
-
-    private String password;
     private String phoneNumber;
     private LocalDate birthDate;
+    private List<RoleDTO> roles = new ArrayList<>();
+
     public UserDTO() {
     }
 
-    public UserDTO(Long id, String firstName, String lastName, String email, String password, String phoneNumber, LocalDate birthDate) {
+    public UserDTO(Long id, String firstName, String lastName, String email, String phoneNumber, LocalDate birthDate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
     }
@@ -36,8 +37,8 @@ public class UserDTO {
         this.email = entity.getEmail();
         this.phoneNumber = entity.getPhoneNumber();
         this.birthDate = entity.getBirthDate();
+        entity.getRoles().forEach(role -> this.roles.add(new RoleDTO(role)));
     }
-
 
     public Long getId() {
         return id;
@@ -55,15 +56,15 @@ public class UserDTO {
         return email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
     public LocalDate getBirthDate() {
         return birthDate;
+    }
+
+    public List<RoleDTO> getRoles() {
+        return roles;
     }
 }

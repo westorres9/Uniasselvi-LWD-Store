@@ -1,9 +1,7 @@
 package com.uniasselvi.lwdstore.entities;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import jakarta.persistence.*;
 
@@ -25,6 +23,12 @@ public class User {
     private LocalDate birthDate;
     @OneToMany(mappedBy = "user")
     private List<Review> reviews = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(name = "tb_user_role",
+    joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
     public User() {
     }
@@ -98,6 +102,10 @@ public class User {
 
     public List<Review> getReviews() {
         return reviews;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
     }
 
     @Override

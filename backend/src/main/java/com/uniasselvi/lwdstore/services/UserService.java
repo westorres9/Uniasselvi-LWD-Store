@@ -1,6 +1,10 @@
 package com.uniasselvi.lwdstore.services;
 import com.uniasselvi.lwdstore.dto.UserDTO;
+import com.uniasselvi.lwdstore.dto.UserInsertDTO;
+import com.uniasselvi.lwdstore.entities.Role;
+import com.uniasselvi.lwdstore.entities.RoleType;
 import com.uniasselvi.lwdstore.entities.User;
+import com.uniasselvi.lwdstore.repositories.RoleRepository;
 import com.uniasselvi.lwdstore.repositories.UserRepository;
 import com.uniasselvi.lwdstore.services.exceptions.DatabaseException;
 import com.uniasselvi.lwdstore.services.exceptions.ResourceNotFoundException;
@@ -19,7 +23,10 @@ import java.util.Optional;
 public class UserService {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Transactional(readOnly = true)
     public Page<UserDTO> findAllPaged(Pageable pageable) {
@@ -35,24 +42,26 @@ public class UserService {
     }
 
     @Transactional
-    public UserDTO insert(UserDTO dto) {
+    public UserDTO insert(UserInsertDTO dto) {
         User entity = new User();
         copyDtoToEntity(dto, entity);
-
-
+        Role role = roleRepository.findByAuthority(RoleType.ROLE_CLIENT);
+        entity.getRoles().clear();
+        entity.getRoles().add(role);
         entity = userRepository.save(entity);
         return new UserDTO(entity);
     }
 
     @Transactional
-    public UserDTO update(Long id, UserDTO dto) {
+    public UserDTO update(Long id, UserInsertDTO dto) {
         try {
             User entity = userRepository.getReferenceById(id);
             copyDtoToEntity(dto, entity);
-
+            entity.setPassword(dto.getPassword());
             entity = userRepository.save(entity);
             return new UserDTO(entity);
-        } catch (EntityNotFoundException e) {
+        }
+        catch (EntityNotFoundException e) {
             throw new ResourceNotFoundException("Id não encontrado");
         }
     }
@@ -69,11 +78,11 @@ public class UserService {
         }
     }
 
-    private void copyDtoToEntity(UserDTO dto, User entity) {
+    private void copyDtoToEntity(UserInsertDTO dto, User entity) {
         entity.setFirstName(dto.getFirstName());
         entity.setLastName(dto.getLastName());
-        entity.setEmail(dto.getEmail());
         entity.setPassword(dto.getPassword());
+        entity.setEmail(dto.getEmail());
         entity.setBirthDate(dto.getBirthDate());
         entity.setPhoneNumber(dto.getPhoneNumber());
     }
