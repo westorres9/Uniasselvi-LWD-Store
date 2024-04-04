@@ -38,8 +38,6 @@ public class UserService {
     public UserDTO insert(UserDTO dto) {
         User entity = new User();
         copyDtoToEntity(dto, entity);
-
-
         entity = userRepository.save(entity);
         return new UserDTO(entity);
     }
@@ -49,7 +47,6 @@ public class UserService {
         try {
             User entity = userRepository.getReferenceById(id);
             copyDtoToEntity(dto, entity);
-
             entity = userRepository.save(entity);
             return new UserDTO(entity);
         } catch (EntityNotFoundException e) {
@@ -73,7 +70,6 @@ public class UserService {
         entity.setFirstName(dto.getFirstName());
         entity.setLastName(dto.getLastName());
         entity.setEmail(dto.getEmail());
-        entity.setPassword(dto.getPassword());
         entity.setBirthDate(dto.getBirthDate());
         entity.setPhoneNumber(dto.getPhoneNumber());
     }

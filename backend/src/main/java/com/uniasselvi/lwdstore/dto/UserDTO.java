@@ -12,19 +12,17 @@ public class UserDTO {
     private String firstName;
     private String lastName;
     private String email;
-
-    private String password;
     private String phoneNumber;
     private LocalDate birthDate;
+
     public UserDTO() {
     }
 
-    public UserDTO(Long id, String firstName, String lastName, String email, String password, String phoneNumber, LocalDate birthDate) {
+    public UserDTO(Long id, String firstName, String lastName, String email, String phoneNumber, LocalDate birthDate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
     }
@@ -37,7 +35,6 @@ public class UserDTO {
         this.phoneNumber = entity.getPhoneNumber();
         this.birthDate = entity.getBirthDate();
     }
-
 
     public Long getId() {
         return id;
@@ -53,10 +50,6 @@ public class UserDTO {
 
     public String getEmail() {
         return email;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public String getPhoneNumber() {
