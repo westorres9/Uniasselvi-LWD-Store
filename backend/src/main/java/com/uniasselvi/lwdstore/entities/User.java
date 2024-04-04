@@ -1,6 +1,8 @@
 package com.uniasselvi.lwdstore.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -25,6 +27,8 @@ public class User {
 	private String password;
 	private String phoneNumber;
 	private LocalDate birthDate;
+
+	private List<Review> reviews = new ArrayList<>();
 	
 	public User() {	
 	}
@@ -99,6 +103,10 @@ public class User {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
 	}
 
 	@Override

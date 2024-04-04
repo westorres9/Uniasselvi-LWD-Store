@@ -2,6 +2,8 @@ package com.uniasselvi.lwdstore.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 @Entity
 @Table(name = "tb_product")
@@ -28,6 +30,8 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "brand_id")
     private Brand brand;
+
+    private List<Review> reviews = new ArrayList<>();
 
     public Product() {
     }
@@ -136,6 +140,9 @@ public class Product {
         this.brand = brand;
     }
 
+    public List<Review> getReviews() {
+        return reviews;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
