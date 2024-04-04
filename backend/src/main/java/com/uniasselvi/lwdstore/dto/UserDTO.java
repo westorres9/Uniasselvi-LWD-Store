@@ -1,10 +1,12 @@
 package com.uniasselvi.lwdstore.dto;
 
+import com.uniasselvi.lwdstore.entities.Role;
 import com.uniasselvi.lwdstore.entities.User;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class UserDTO {
 
@@ -14,6 +16,7 @@ public class UserDTO {
     private String email;
     private String phoneNumber;
     private LocalDate birthDate;
+    private List<RoleDTO> roles = new ArrayList<>();
 
     public UserDTO() {
     }
@@ -34,6 +37,7 @@ public class UserDTO {
         this.email = entity.getEmail();
         this.phoneNumber = entity.getPhoneNumber();
         this.birthDate = entity.getBirthDate();
+        entity.getRoles().forEach(role -> this.roles.add(new RoleDTO(role)));
     }
 
     public Long getId() {
@@ -58,5 +62,9 @@ public class UserDTO {
 
     public LocalDate getBirthDate() {
         return birthDate;
+    }
+
+    public List<RoleDTO> getRoles() {
+        return roles;
     }
 }

@@ -12,7 +12,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping(value = "/marcas")
+@RequestMapping(value = "/brands")
 public class BrandController {
 
     @Autowired

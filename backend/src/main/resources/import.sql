@@ -6,6 +6,10 @@ INSERT INTO tb_user(first_name, last_name, email, password, birth_date, phone_nu
 INSERT INTO tb_user(first_name, last_name, email, password, birth_date, phone_number) VALUES('Dayane', 'Torres', 'dayane@gmail.com', '123456', '1988-11-02', '34998738659');
 INSERT INTO tb_user(first_name, last_name, email, password, birth_date, phone_number) VALUES('Wellington', 'Santos', 'wellington@gmail.com', '123456', '1988-01-31', '34991208122');
 
+INSERT INTO tb_user_role(user_id, role_id) VALUES (1,1);
+INSERT INTO tb_user_role(user_id, role_id) VALUES (2,2);
+INSERT INTO tb_user_role(user_id, role_id) VALUES (3,3);
+
 INSERT INTO tb_category(name) VALUES ('Computadores');
 INSERT INTO tb_category(name) VALUES ('Eletronicos');
 INSERT INTO tb_category(name) VALUES ('Livros');
