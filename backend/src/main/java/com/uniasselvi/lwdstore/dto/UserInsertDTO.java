@@ -1,7 +1,5 @@
 package com.uniasselvi.lwdstore.dto;
 
-import com.uniasselvi.lwdstore.entities.User;
-
 public class UserInsertDTO extends UserDTO {
 
     private String password;
