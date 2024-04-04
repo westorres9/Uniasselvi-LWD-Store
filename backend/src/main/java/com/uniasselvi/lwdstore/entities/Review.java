@@ -1,11 +1,21 @@
 package com.uniasselvi.lwdstore.entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tb_review")
 public class Review {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String comment;
     private Double rate;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
     private Product product;
 
     public Review() {
