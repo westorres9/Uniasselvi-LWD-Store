@@ -19,8 +19,10 @@ public class BrandController {
     private BrandService brandService;
 
     @GetMapping
-    public ResponseEntity<Page<BrandDTO>> findAllPaged(Pageable pageable) {
-        Page<BrandDTO> brands = brandService.findAllPaged(pageable);
+    public ResponseEntity<Page<BrandDTO>> findAllPagedByName(
+            @RequestParam(name = "name", defaultValue = "")String name,
+            Pageable pageable) {
+        Page<BrandDTO> brands = brandService.findAllPagedByName(name,pageable);
         return ResponseEntity.ok().body(brands);
     }
 

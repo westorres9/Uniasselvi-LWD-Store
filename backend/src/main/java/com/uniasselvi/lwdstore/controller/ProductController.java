@@ -19,8 +19,10 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public ResponseEntity<Page<ProductDTO>> findAllPaged(Pageable pageable) {
-        Page<ProductDTO> page = productService.findAllPaged(pageable);
+    public ResponseEntity<Page<ProductDTO>> findAllPagedByName(
+            @RequestParam(name = "name", defaultValue = "")String name,
+            Pageable pageable) {
+        Page<ProductDTO> page = productService.findAllPagedByName(name, pageable);
         return ResponseEntity.ok().body(page);
     }
 
