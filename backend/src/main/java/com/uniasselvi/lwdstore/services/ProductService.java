@@ -53,7 +53,7 @@ public class ProductService {
         return new ProductDTO(product);
     }
 
-    @Transactional(propagation = Propagation.SUPPORTS)
+    @Transactional
     public ProductDTO update(Long id, ProductDTO dto) {
         try {
             Product product = productRepository.getReferenceById(id);
@@ -66,6 +66,7 @@ public class ProductService {
         }
     }
 
+    @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
         if(!productRepository.existsById(id)) {
             throw new ResourceNotFoundException("Id não encontrado");
