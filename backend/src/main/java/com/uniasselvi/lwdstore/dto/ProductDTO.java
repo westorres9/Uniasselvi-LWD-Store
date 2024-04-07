@@ -1,9 +1,8 @@
 package com.uniasselvi.lwdstore.dto;
 
-import com.uniasselvi.lwdstore.entities.Brand;
-import com.uniasselvi.lwdstore.entities.Category;
 import com.uniasselvi.lwdstore.entities.Product;
 import com.uniasselvi.lwdstore.entities.Review;
+import jakarta.validation.constraints.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +11,27 @@ import java.util.List;
 public class ProductDTO {
 
     private Long id;
+    @NotBlank(message = "código SKU não pode ser vazio")
     private String sku;
+    @Size(min = 3, max = 80)
+    @NotBlank(message = "O nome deve ter entre 3 e 80 caracteres")
     private String name;
+    @Size(min = 3, max = 255)
+    @NotBlank(message = "A descrição deve ter entre 3 e 255 caracteres")
     private String description;
+    @Positive(message = "O preço deve ser positivo")
     private Double price;
+    @NotBlank(message = "URL da imagem não pode ser vazio")
     private String imageUrl;
+    @PositiveOrZero(message = "quantidade em estoque não pode ser negativo")
     private Integer unitsInStock;
+    @NotBlank(message = "Deve informar se produto está disponível ou não")
     private boolean available;
+    @NotBlank(message = "Deve informar se produto está em promoção ou não")
     private boolean saleOff;
+    @NotNull(message = "Categoria do produto não pode ser nulo")
     private CategoryDTO category;
+    @NotNull(message = "Marca do produto não pode ser nulo")
     private BrandDTO brand;
     private List<ReviewDTO> reviews = new ArrayList<>();
 
