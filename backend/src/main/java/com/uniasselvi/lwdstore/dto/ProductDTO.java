@@ -25,9 +25,7 @@ public class ProductDTO {
     private String imageUrl;
     @PositiveOrZero(message = "quantidade em estoque não pode ser negativo")
     private Integer unitsInStock;
-    @NotBlank(message = "Deve informar se produto está disponível ou não")
     private boolean available;
-    @NotBlank(message = "Deve informar se produto está em promoção ou não")
     private boolean saleOff;
     @NotNull(message = "Categoria do produto não pode ser nulo")
     private CategoryDTO category;
