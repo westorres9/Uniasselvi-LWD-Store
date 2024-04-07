@@ -1,10 +1,14 @@
 package com.uniasselvi.lwdstore.dto;
 
 import com.uniasselvi.lwdstore.entities.Category;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 public class CategoryDTO {
 
     private Long id;
+    @Size(min = 3, max = 80)
+    @NotBlank(message = "nome deve ter entre 3 e 80 caracteres")
     private String name;
 
     public CategoryDTO(){

@@ -3,6 +3,7 @@ package com.uniasselvi.lwdstore.controller;
 import com.uniasselvi.lwdstore.dto.UserDTO;
 import com.uniasselvi.lwdstore.dto.UserInsertDTO;
 import com.uniasselvi.lwdstore.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,7 +36,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDTO> insert(@RequestBody UserInsertDTO dto) {
+    public ResponseEntity<UserDTO> insert(@Valid @RequestBody UserInsertDTO dto) {
         UserDTO newdto = userService.insert(dto);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -46,7 +47,7 @@ public class UserController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<UserDTO> update(@PathVariable Long id, @RequestBody UserInsertDTO dto) {
+    public ResponseEntity<UserDTO> update(@PathVariable Long id,@Valid @RequestBody UserInsertDTO dto) {
         UserDTO newdto = userService.update(id, dto);
         return ResponseEntity.ok().body(newdto);
     }

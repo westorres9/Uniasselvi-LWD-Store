@@ -2,6 +2,10 @@ package com.uniasselvi.lwdstore.dto;
 
 import com.uniasselvi.lwdstore.entities.Role;
 import com.uniasselvi.lwdstore.entities.User;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,10 +15,18 @@ import java.util.Set;
 public class UserDTO {
 
     private Long id;
+    @Size(min = 3, max = 80)
+    @NotBlank(message = "O nome deve ter entre 3 e 80 caracteres")
     private String firstName;
+    @Size(min = 3, max = 80)
+    @NotBlank(message = "O sobrenome deve ter entre 3 e 80 caracteres")
     private String lastName;
+    @Email(message = "Favor enviar um email válido")
     private String email;
+    @Size(max = 11)
+    @NotBlank(message = "Favor informar um número de telefone válido")
     private String phoneNumber;
+    @PastOrPresent(message = "Data de nascimento não pode ser futura")
     private LocalDate birthDate;
     private List<RoleDTO> roles = new ArrayList<>();
 

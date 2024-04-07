@@ -2,6 +2,7 @@ package com.uniasselvi.lwdstore.controller;
 
 import com.uniasselvi.lwdstore.dto.BrandDTO;
 import com.uniasselvi.lwdstore.services.BrandService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,7 +34,7 @@ public class BrandController {
     }
 
     @PostMapping
-    public ResponseEntity<BrandDTO> insert(@RequestBody BrandDTO dto) {
+    public ResponseEntity<BrandDTO> insert(@Valid @RequestBody BrandDTO dto) {
         dto = brandService.insert(dto);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -44,7 +45,7 @@ public class BrandController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<BrandDTO> update(@PathVariable Long id, @RequestBody BrandDTO dto) {
+    public ResponseEntity<BrandDTO> update(@PathVariable Long id,@Valid @RequestBody BrandDTO dto) {
         dto = brandService.update(id, dto);
         return ResponseEntity.ok().body(dto);
     }

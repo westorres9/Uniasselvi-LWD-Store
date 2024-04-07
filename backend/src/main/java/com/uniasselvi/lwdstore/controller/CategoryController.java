@@ -3,6 +3,7 @@ package com.uniasselvi.lwdstore.controller;
 import com.uniasselvi.lwdstore.dto.CategoryDTO;
 import com.uniasselvi.lwdstore.entities.Category;
 import com.uniasselvi.lwdstore.services.CategoryService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,7 +34,7 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<CategoryDTO> insert(@RequestBody CategoryDTO dto){
+    public ResponseEntity<CategoryDTO> insert(@Valid @RequestBody CategoryDTO dto){
         dto = categoryService.insert(dto);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -44,7 +45,7 @@ public class CategoryController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<CategoryDTO> update(@PathVariable Long id, @RequestBody CategoryDTO dto){
+    public ResponseEntity<CategoryDTO> update(@PathVariable Long id,@Valid @RequestBody CategoryDTO dto){
         dto = categoryService. update(id, dto);
         return ResponseEntity.ok().body(dto);
     }
