@@ -29,8 +29,8 @@ public class UserService {
     private RoleRepository roleRepository;
 
     @Transactional(readOnly = true)
-    public Page<UserDTO> findAllPaged(Pageable pageable) {
-        Page<User> users = userRepository.findAll(pageable);
+    public Page<UserDTO> findAllPagedByName(String name, Pageable pageable) {
+        Page<User> users = userRepository.searchUsersPagedByFirstNameOrLastName(name,pageable);
         return users.map(user -> new UserDTO(user));
     }
 

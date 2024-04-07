@@ -19,8 +19,10 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping
-    public ResponseEntity<Page<CategoryDTO>> findAllPaged(Pageable pageable){
-        Page<CategoryDTO> categories =categoryService.findAllPaged(pageable);
+    public ResponseEntity<Page<CategoryDTO>> findAllPagedByName(
+            @RequestParam(name = "name", defaultValue = "")String name,
+            Pageable pageable){
+        Page<CategoryDTO> categories =categoryService.findAllPagedByName(name, pageable);
         return ResponseEntity.ok().body(categories);
     }
 

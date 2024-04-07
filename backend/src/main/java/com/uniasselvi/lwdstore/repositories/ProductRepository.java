@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("SELECT obj FROM Product obj " +
-            "WHERE UPPER(obj.name) LIKE LOWER(CONCAT('%', :name ,'%'))")
+            "WHERE LOWER(obj.name) LIKE LOWER(CONCAT('%', :name ,'%'))")
     Page<Product> searchProductsPagedByName(String name, Pageable pageable);
 
     @Query("SELECT p FROM Product p" +

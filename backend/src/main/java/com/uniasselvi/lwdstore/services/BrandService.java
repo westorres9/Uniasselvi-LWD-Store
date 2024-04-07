@@ -23,8 +23,8 @@ public class BrandService {
     private BrandRepository brandRepository;
 
     @Transactional(readOnly = true)
-    public Page<BrandDTO> findAllPaged(Pageable pageable) {
-        Page<Brand> brands = brandRepository.findAll(pageable);
+    public Page<BrandDTO> findAllPagedByName(String name, Pageable pageable) {
+        Page<Brand> brands = brandRepository.searchBrandsPagedByName(name, pageable);
         return brands.map(brand -> new BrandDTO(brand));
     }
 

@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     @Query("SELECT obj FROM Category obj " +
-            "WHERE UPPER(obj.name) LIKE LOWER(CONCAT('%', :name ,'%'))")
+            "WHERE LOWER(obj.name) LIKE LOWER(CONCAT('%', :name ,'%'))")
     Page<Category> searchCategoriesPagedByName(String name, Pageable pageable);
 }

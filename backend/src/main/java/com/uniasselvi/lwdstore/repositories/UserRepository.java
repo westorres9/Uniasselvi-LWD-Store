@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT obj FROM User obj " +
-            "WHERE LOWER(obj.firstName) LIKE LOWER(CONCAT('%', :name ,'%') " +
-            "OR LOWER(obj.lastName) LIKE LOWER(CONCAT('%', :name, '%')))")
-    Page<User> searchUserPagedByNameOrLastName(String name, Pageable pageable);
+            "WHERE LOWER(obj.firstName) LIKE LOWER(CONCAT('%', :name ,'%'))" +
+            "OR LOWER(obj.lastName) LIKE LOWER(CONCAT('%', :name ,'%'))")
+    Page<User> searchUsersPagedByFirstNameOrLastName(String name, Pageable pageable);
 }

@@ -20,8 +20,10 @@ public class UserController {
     UserService userService;
 
     @GetMapping
-    public ResponseEntity<Page<UserDTO>> findAllPaged(Pageable pageable) {
-        Page<UserDTO> users = userService.findAllPaged(pageable);
+    public ResponseEntity<Page<UserDTO>> findAllPaged(
+            @RequestParam(name = "name", defaultValue = "")String name,
+            Pageable pageable) {
+        Page<UserDTO> users = userService.findAllPagedByName(name, pageable);
         return ResponseEntity.ok().body(users);
     }
 
