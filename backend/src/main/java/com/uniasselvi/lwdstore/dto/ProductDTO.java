@@ -3,6 +3,10 @@ package com.uniasselvi.lwdstore.dto;
 import com.uniasselvi.lwdstore.entities.Brand;
 import com.uniasselvi.lwdstore.entities.Category;
 import com.uniasselvi.lwdstore.entities.Product;
+import com.uniasselvi.lwdstore.entities.Review;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ProductDTO {
@@ -18,6 +22,7 @@ public class ProductDTO {
     private boolean saleOff;
     private CategoryDTO category;
     private BrandDTO brand;
+    private List<ReviewDTO> reviews = new ArrayList<>();
 
     public ProductDTO() {
     }
@@ -48,6 +53,11 @@ public class ProductDTO {
         this.saleOff = product.isSaleOff();
         this.category = new CategoryDTO(product.getCategory());
         this.brand = new BrandDTO(product.getBrand());
+    }
+
+    public ProductDTO(Product product, List<Review> reviews) {
+        this(product);
+        reviews.forEach(review -> this.reviews.add(new ReviewDTO(review)));
     }
 
     public Long getId() {
@@ -136,5 +146,9 @@ public class ProductDTO {
 
     public void setBrand(BrandDTO brand) {
         this.brand = brand;
+    }
+
+    public List<ReviewDTO> getReviews() {
+        return reviews;
     }
 }
