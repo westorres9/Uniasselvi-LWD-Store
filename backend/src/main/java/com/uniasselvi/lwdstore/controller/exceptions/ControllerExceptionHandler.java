@@ -21,7 +21,7 @@ public class ControllerExceptionHandler {
         err.setStatus(HttpStatus.NOT_FOUND.value());
         err.setError("RESOURCE NOT FOUND EXCEPTION");
         err.setPath(request.getRequestURI());
-        err.setMessage("Recurso não encontrado");
+        err.setMessage(e.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
     }
 
