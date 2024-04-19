@@ -4,6 +4,7 @@ import com.uniasselvi.lwdstore.dto.UserInsertDTO;
 import com.uniasselvi.lwdstore.entities.Role;
 import com.uniasselvi.lwdstore.entities.RoleType;
 import com.uniasselvi.lwdstore.entities.User;
+import com.uniasselvi.lwdstore.projections.UserDetailsProjection;
 import com.uniasselvi.lwdstore.repositories.RoleRepository;
 import com.uniasselvi.lwdstore.repositories.UserRepository;
 import com.uniasselvi.lwdstore.services.exceptions.DatabaseException;
@@ -13,14 +14,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
@@ -87,4 +92,18 @@ public class UserService {
         entity.setPhoneNumber(dto.getPhoneNumber());
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+       List<UserDetailsProjection> result = userRepository.searchUserAndRolesByEmail(username);
+       if(result.size() == 0) {
+           throw new UsernameNotFoundException("User not found!");
+       }
+       User user = new User();
+       user.setEmail(username);
+       user.setPassword(result.get(0).getPassword());
+       for(UserDetailsProjection projection : result) {
+           user.addRole(new Role(projection.getRoleId(), projection.getAuthority()));
+       }
+       return user;
+    }
 }
