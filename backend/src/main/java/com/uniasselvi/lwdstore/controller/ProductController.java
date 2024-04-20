@@ -1,7 +1,9 @@
 package com.uniasselvi.lwdstore.controller;
 
 import com.uniasselvi.lwdstore.dto.ProductDTO;
+import com.uniasselvi.lwdstore.dto.ReviewDTO;
 import com.uniasselvi.lwdstore.services.ProductService;
+import com.uniasselvi.lwdstore.services.ReviewService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,6 +22,9 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private ReviewService reviewService;
+
     @GetMapping
     public ResponseEntity<Page<ProductDTO>> findAllPagedByName(
             @RequestParam(name = "name", defaultValue = "")String name,
@@ -33,6 +38,19 @@ public class ProductController {
         ProductDTO dto = productService.findById(id);
         return ResponseEntity.ok().body(dto);
     }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_OPERATOR', 'ROLE_CLIENT')")
+    @PostMapping(value = "/{id}/review")
+    public ResponseEntity<ReviewDTO> addReview(@PathVariable Long id, @RequestBody ReviewDTO dto) {
+        dto = reviewService.addReview(id, dto);
+        URI uri = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(dto.getId())
+                .toUri();
+        return ResponseEntity.created(uri).body(dto);
+    }
+
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_OPERATOR')")
     @PostMapping
