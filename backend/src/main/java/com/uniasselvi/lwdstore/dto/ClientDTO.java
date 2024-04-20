@@ -2,18 +2,18 @@ package com.uniasselvi.lwdstore.dto;
 
 import com.uniasselvi.lwdstore.entities.User;
 
-public class ClienteDTO {
+public class ClientDTO {
 
     private Long id;
 
     private String firstName;
 
-    public ClienteDTO(Long id, String firstName) {
+    public ClientDTO(Long id, String firstName) {
         this.id = id;
         this.firstName = firstName;
     }
 
-    public ClienteDTO(User entity) {
+    public ClientDTO(User entity) {
         id = entity.getId();
         firstName = entity.getFirstName();
     }
