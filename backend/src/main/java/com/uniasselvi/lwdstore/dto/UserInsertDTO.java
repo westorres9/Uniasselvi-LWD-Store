@@ -1,5 +1,8 @@
 package com.uniasselvi.lwdstore.dto;
 
+import com.uniasselvi.lwdstore.services.validations.UserInsertValid;
+
+@UserInsertValid
 public class UserInsertDTO extends UserDTO {
 
     private String password;
