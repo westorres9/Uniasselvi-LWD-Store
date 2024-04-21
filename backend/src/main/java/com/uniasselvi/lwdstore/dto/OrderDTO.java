@@ -3,6 +3,7 @@ package com.uniasselvi.lwdstore.dto;
 import com.uniasselvi.lwdstore.entities.Order;
 import com.uniasselvi.lwdstore.entities.OrderItem;
 import com.uniasselvi.lwdstore.entities.OrderStatus;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class OrderDTO {
 
     private OrderStatus status;
 
+    @NotEmpty(message = "Deve ter pelo menos um item")
     private List<OrderItemDTO> items = new ArrayList<>();
 
     public OrderDTO(Long id, Instant moment, OrderStatus status, ClientDTO client, PaymentDTO payment) {
