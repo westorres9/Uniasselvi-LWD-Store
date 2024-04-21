@@ -1,11 +1,17 @@
 package com.uniasselvi.lwdstore.dto;
 
 import com.uniasselvi.lwdstore.entities.Review;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 
 public class ReviewDTO {
 
     private Long id;
+    @NotBlank(message = "nome deve ter entre 3 e 80 caracteres")
     private String comment;
+    @NotNull(message = "Avaliação não pode ser nulo")
+    @PositiveOrZero(message = "Valores permitidos entre 0 e 5")
     private Double rate;
     private Long userId;
     private Long productId;

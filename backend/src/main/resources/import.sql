@@ -25,3 +25,15 @@ INSERT INTO tb_product(sku, name, description, price, image_url, units_in_stock,
 INSERT INTO tb_review(comment,rate, user_id, product_id) VALUES ('Produto muito bom!', 4.8, 1, 1);
 INSERT INTO tb_review(comment,rate, user_id, product_id) VALUES ('Produto excelente!', 4.7, 2, 1);
 INSERT INTO tb_review(comment,rate, user_id, product_id) VALUES ('Produto maravilhoso!', 5.0, 3, 1);
+
+INSERT INTO tb_order (moment, status, client_id) VALUES (TIMESTAMP WITH TIME ZONE '2022-07-25T13:00:00Z', 1, 1);
+INSERT INTO tb_order (moment, status, client_id) VALUES (TIMESTAMP WITH TIME ZONE '2022-07-29T15:50:00Z', 3, 2);
+INSERT INTO tb_order (moment, status, client_id) VALUES (TIMESTAMP WITH TIME ZONE '2022-08-03T14:20:00Z', 0, 1);
+
+INSERT INTO tb_order_item (order_id, product_id, quantity, price) VALUES (1, 1, 2, 2689.0);
+INSERT INTO tb_order_item (order_id, product_id, quantity, price) VALUES (1, 3, 1, 	449.0);
+INSERT INTO tb_order_item (order_id, product_id, quantity, price) VALUES (2, 3, 1, 	449.0);
+INSERT INTO tb_order_item (order_id, product_id, quantity, price) VALUES (3, 1, 1, 2689.0);
+
+INSERT INTO tb_payment (order_id, moment) VALUES (1, TIMESTAMP WITH TIME ZONE '2022-07-25T15:00:00Z');
+INSERT INTO tb_payment (order_id, moment) VALUES (2, TIMESTAMP WITH TIME ZONE '2022-07-30T11:00:00Z');
