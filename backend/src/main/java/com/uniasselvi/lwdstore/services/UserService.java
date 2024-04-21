@@ -17,6 +17,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +34,9 @@ public class UserService implements UserDetailsService {
     @Autowired
     private RoleRepository roleRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Transactional(readOnly = true)
     public Page<UserDTO> findAllPagedByName(String name, Pageable pageable) {
         Page<User> users = userRepository.searchUsersPagedByFirstNameOrLastName(name,pageable);
@@ -45,6 +49,7 @@ public class UserService implements UserDetailsService {
         User user = opt.orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado"));
         return new UserDTO(user);
     }
+
 
     @Transactional
     public UserDTO insert(UserInsertDTO dto) {
@@ -86,7 +91,7 @@ public class UserService implements UserDetailsService {
     private void copyDtoToEntity(UserInsertDTO dto, User entity) {
         entity.setFirstName(dto.getFirstName());
         entity.setLastName(dto.getLastName());
-        entity.setPassword(dto.getPassword());
+        entity.setPassword(passwordEncoder.encode(dto.getPassword()));
         entity.setEmail(dto.getEmail());
         entity.setBirthDate(dto.getBirthDate());
         entity.setPhoneNumber(dto.getPhoneNumber());
