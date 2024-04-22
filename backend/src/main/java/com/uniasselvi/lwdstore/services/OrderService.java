@@ -46,25 +46,18 @@ public class OrderService {
     @Transactional
     public OrderDTO insert(OrderDTO dto) {
         Order order = new Order();
-
         order.setMoment(Instant.now());
         order.setStatus(OrderStatus.PENDENTE);
-
-
         User user = authService.authenticated();
         order.setClient(user);
-
         for (OrderItemDTO itemDto : dto.getItems()) {
             Product product = productRepository.getReferenceById((itemDto.getProductId()));
             OrderItem item = new OrderItem(order, product, itemDto.getQuantity(), product.getPrice());
             order.getItems().add(item);
         }
-
         orderRepository.save(order);
         orderItemRepository.saveAll(order.getItems());
-
         return new OrderDTO(order);
-
     }
 
 }
