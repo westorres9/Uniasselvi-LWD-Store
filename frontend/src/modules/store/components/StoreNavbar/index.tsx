@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 export default function StoreNavbar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-md bg-body-tertiary">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           <img src={Logo} id="logo" alt="LWD Store" />

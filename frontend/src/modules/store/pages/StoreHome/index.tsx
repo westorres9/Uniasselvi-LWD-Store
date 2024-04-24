@@ -1,7 +1,9 @@
+import MainCarousel from "../../components/MainCarousel";
+
 export default function StoreHome() {
     return (
         <div>
-            <h1>Tela Home</h1>
+            <MainCarousel/>
         </div>
     )
 }
