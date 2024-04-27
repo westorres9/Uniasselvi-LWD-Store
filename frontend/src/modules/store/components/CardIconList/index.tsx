@@ -10,28 +10,28 @@ export default function CardIconList() {
   return (
     <div className="container card-container">
       <div className="row">
-        <div className="col-sm card-item">
+        <div className="col col-sm-6 col-lg-3 card-item">
           <CardIcon
             imageUrl={TruckIcon}
             title={"Frete Grátis"}
             subtitle={"Para compras de até R$100,00"}
           />
         </div>
-        <div className="col-sm card-item">
+        <div className="col col-sm-6 col-lg-3 card-item">
           <CardIcon
             imageUrl={SecuryIcon}
             title={"Pagamento seguro"}
             subtitle={"Nós garantimos seu pagamento seguro"}
           />
         </div>
-        <div className="col-sm card-item">
+        <div className="col col-sm-6 col-lg-3 card-item">
           <CardIcon
             imageUrl={MoneyIcon}
             title={"Devolução garantida"}
             subtitle={"30 dias para reembolso"}
           />
         </div>
-        <div className="col-sm card-item">
+        <div className="col col-sm-6 col-lg-3 card-item">
           <CardIcon
             imageUrl={SuportIcon}
             title={"Suporte online"}
