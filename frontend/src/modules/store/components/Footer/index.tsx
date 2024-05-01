@@ -15,7 +15,7 @@ export default function Footer() {
       <div className="container-fluid text-center text-md-left">
         <div className="row">
           <div className="col-md-3 mt-md-0 mt-3">
-            <h5 className="text-uppercase">ToolStore PRO</h5>
+            <h5 className="text-uppercase">LWD Store</h5>
             <p className="text-primary font-bold mt-3">Atendimento</p>
             <p>De Segunda a Sexta das 08:00 as 18:00</p>
             <p>Aos Sábados de 08:00 a 12:00</p>

@@ -34,7 +34,7 @@ export default function AdminNavbar() {
   return (
     <div className="admin-navbar">
       <div className="admin-navbar-container container">
-        <h4>ToolStore PRO Admin</h4>
+        <h4>LWD Store Admin</h4>
         <div className="admin-navbar-logged-user">
           <p>{user?.email}</p>
           <div className="admin-navbar-logged-user-container">

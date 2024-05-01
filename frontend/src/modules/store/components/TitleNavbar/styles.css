@@ -1,5 +1,13 @@
 .navbar {
-    height: 60px;
+    height: 80px;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
 }
 
 .navbar-brand h5 {
