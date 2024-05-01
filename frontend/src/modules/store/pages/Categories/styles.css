@@ -1,0 +1,25 @@
+.category-card-list-container{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.category-title {
+    margin-top: 50px;
+}
+
+.category-grid {
+    padding: 20px;
+    width: 160%;
+    margin-right: 40px;
+}
+
+@media (min-width:576px) {
+    .category-grid {
+        width: 100%;
+    }
+}

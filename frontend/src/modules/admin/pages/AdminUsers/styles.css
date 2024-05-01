@@ -1,0 +1,18 @@
+.admin-user-list {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.admin-user-add-button-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.admin-user-add-button-container button {
+    width: 150px;
+    color: #fff;
+}
+
+.page-navigation {
+    width: 320px;
+}

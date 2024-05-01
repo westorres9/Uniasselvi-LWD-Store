@@ -1,0 +1,39 @@
+.newsletter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 30px;
+}
+
+.newsletter-container h2 {
+    margin-bottom: 15px;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.newsletter-input {
+    height: 50px;
+    border-radius: 10px 0 0 10px;
+    width: 100%;
+    border: 3px solid black;
+}
+
+.newsletter-button{
+    height: 50px;
+    border-radius: 0 10px 10px 0;
+}
+
+@media (min-width:576px) {
+    .newsletter-button {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}

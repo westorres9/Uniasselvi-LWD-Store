@@ -1,0 +1,41 @@
+.navbar {
+    height: 60px;
+}
+
+.navbar-brand h5 {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.navbar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 60px;
+}
+
+@media (min-width:992px) {
+    .navbar-items {
+        margin-right: 10px;
+    }
+}
+
+@media (min-width:1200px) {
+    .navbar-items {
+        margin-right: 120px;
+    }
+}
+
+@media (min-width:1400px) {
+    .navbar-items {
+        margin-right: 200px;
+    }
+}

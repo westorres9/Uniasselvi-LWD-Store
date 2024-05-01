@@ -1,0 +1,24 @@
+.logged-user-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.logged-user-container  p {
+    display: none;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.logged-user-container  span {
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (min-width:576px) {
+    .logged-user-container  p {
+        display: unset;
+    }
+}

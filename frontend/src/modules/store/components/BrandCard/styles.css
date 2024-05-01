@@ -1,0 +1,39 @@
+.brand-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 200px;
+    margin: 50px;
+}
+
+.brand-card-name {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.brand-card-name h2 {
+    word-wrap: normal;
+    font-size: 16px;
+ }
+
+.brand-card-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+}
+
+.brand-card-img img {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .brand-card-name h2 {
+        font-size: 26px;
+     }
+}

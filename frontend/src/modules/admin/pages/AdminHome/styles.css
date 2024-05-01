@@ -1,0 +1,29 @@
+.admin-dashboard {
+    margin: 30px auto;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.dashboard-item {
+    width: 100%;
+    background-color: #FFF;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 1200px) {
+    .dashboard-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .dashboard-item {
+        max-width: 600px;
+        margin-right: 10px;
+    }
+}
