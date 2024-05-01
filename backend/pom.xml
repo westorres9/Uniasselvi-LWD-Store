@@ -8,11 +8,11 @@
 		<version>3.1.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.uniasselvi</groupId>
-	<artifactId>lwdstore</artifactId>
+	<groupId>com.wdtechsolutions</groupId>
+	<artifactId>toolstorepro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>lwdstore</name>
-	<description>Projeto Seminário Interdisciplinar: Implementação de uma Aplicação WEB</description>
+	<name>toolstorepro</name>
+	<description>Project Tool Store Pro Ecommerce Platform</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -62,14 +62,27 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
 		</dependency>
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
+					</image>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version> <!--$NO-MVN-MAN-VER$-->
+				<version>3.1.0</version>
 			</plugin>
 		</plugins>
 	</build>
