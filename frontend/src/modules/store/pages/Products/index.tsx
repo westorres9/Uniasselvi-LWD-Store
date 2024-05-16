@@ -70,20 +70,9 @@ export default function Products() {
           </li>
           <li className="page-item bg-white">
             <a className="page-link disabled" href="#">
-              {"<"}
-            </a>
-          </li>
-          <li className="page-item bg-white">
-            <a className="page-link disabled" href="#">
               {"#"}
             </a>
           </li>
-          <li className="page-item bg-white">
-            <a className="page-link disabled" href="#">
-              {">"}
-            </a>
-          </li>
-
           <li className="page-item">
             {page && (
               <button

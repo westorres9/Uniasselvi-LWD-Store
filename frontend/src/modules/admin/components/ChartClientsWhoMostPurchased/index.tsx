@@ -15,7 +15,7 @@ export default function ChartClientsWhoMostPurchased() {
 
   useEffect(() => {
       
-    const chartData = data.map((item: { client: any; totalPurchased: any; }) => ({
+    const chartData = data.map((item: { client: string; totalPurchased: number; }) => ({
         name: item.client,
         y:  item.totalPurchased
       }));

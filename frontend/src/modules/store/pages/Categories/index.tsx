@@ -26,7 +26,6 @@ export default function Categories() {
         <div className="container text-center category-card-list-container">
           <div className="row category-grid">
             {categories.map((cat) => (
-              
                 <div key={cat.id} className="col-12 col-lg-6">
                   <Link to={`/categories/${cat.id}/products`}>
                     <CategoryCard category={cat} />

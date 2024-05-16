@@ -13,10 +13,10 @@ export default function ProductCard({ product }: Props) {
           <img src={product.imageUrl} alt="" />
           <div className="sale-off-container">
             {
-              product.saleOff && <span className="safe-off">Promoção</span>
+              product.saleOff && <span className="safe-off">OFERTA</span>
             }
             {
-              !product.available && <span className="unavailable">Não Disponível</span>
+              !product.available && <span className="unavailable">ESGOTADO</span>
             }
             
           </div>
@@ -31,7 +31,7 @@ export default function ProductCard({ product }: Props) {
           </div>
           <p>Ou 10 x R$ {(product.price / 10).toFixed(2)} sem juros</p>
           <div className="btn-card">
-            <button className="btn btn-primary">Comprar</button>
+            <button className="btn btn-primary">VER MAIS</button>
           </div>
         </div>
       </div>

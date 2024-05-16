@@ -5,13 +5,14 @@
     align-items: center;
     width: 100%;
     max-width: 800px;
-    margin: 50px;
+    margin: auto;
 }
 
 .category-card-name {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 30px;
 }
 
 .category-card-name h2 {
@@ -24,16 +25,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: fit-content;
+    max-width: fit-content;
     margin: auto;
 }
 
 .category-card-img img {
     width: 100%;
+    max-width: fit-content;
 }
 
 @media (min-width: 768px) {
     .category-card-name h2 {
-        font-size: 26px;
+        font-size: 20px;
      }
 }

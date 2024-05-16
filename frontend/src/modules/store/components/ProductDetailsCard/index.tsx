@@ -29,18 +29,28 @@ export default function ProductDetailsCard({ product }: Props) {
           <img src={product.imageUrl} alt="" />
         </div>
         <div className="product-details-price-container">
-          <h6 className="text-secondary">{product.name}</h6>
+          <h6 className="text-secondary">{product.name.toUpperCase()}</h6>
           <p className="product-sku">{product.sku}</p>
           <span className="product-details-standard-price">
             R$ {product.price.toFixed(2)}
           </span>
           <h4 className="text-darkest">R$ {product.price.toFixed(2)}</h4>
           <h6 className="product-parceled">
-            Ou 10 x R$ {(product.price / 10).toFixed(2)} sem juros
+            Ou 10 x R$ {(product.price / 10).toFixed(2)} SEM JUROS
           </h6>
-          <div className="btn-card" onClick={handleBuyClick}>
-            <button className="btn-details btn btn-primary">Comprar</button>
-          </div>
+          {
+            product.available ? (         
+            <div className="btn-card" onClick={handleBuyClick}>
+              <button className="btn-details btn btn-primary">COMPRAR</button>
+            </div>
+            ) : 
+          (
+            <div className="btn-card">
+              <button className="btn-details btn disabled">PRODUTO NÃO DISPONÍVEL</button>
+            </div>
+          )
+          }
+ 
         </div>
       </div>
       <div className="product-details-descriptions">

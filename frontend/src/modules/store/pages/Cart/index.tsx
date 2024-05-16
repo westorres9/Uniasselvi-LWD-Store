@@ -74,7 +74,7 @@ export default function Cart() {
             <div className="cart-total-container">
               <h1>Total : R$ {cart.total.toFixed(2)}</h1>
               <button onClick={handlePlaceOrderClick} className="btn btn-dark btn-total">
-                Finalizar Pedido
+                FINALIZAR PEDIDO
               </button>
             </div>
           )}
@@ -84,16 +84,16 @@ export default function Cart() {
             onClick={returnToCatalog}
             className="btn btn-outline-dark btn-continue"
           >
-            Continuar comprando
+            CONTINUAR COMPRANDO
           </button>
           <button
             onClick={clearCart}
             className="btn btn-outline-dark btn-clear"
           >
-            Limpar Carrinho
+            LIMPAR CARRINHO
           </button>
           <button onClick={returnToHome} className="btn btn-primary btn-return">
-            Voltar ao início
+            VOLTAR AO INÍCIO
           </button>
         </div>
       </div>

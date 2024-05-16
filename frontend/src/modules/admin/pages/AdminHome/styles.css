@@ -23,7 +23,24 @@
     }
 
     .dashboard-item {
-        max-width: 600px;
+        max-width: 500px;
+        height: auto;
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .dashboard-item {
+        max-width: 800px;
+        height: auto;
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .dashboard-item {
+        max-width: 1000px;
+        height: auto;
         margin-right: 10px;
     }
 }

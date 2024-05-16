@@ -16,8 +16,8 @@ export default function TitleNavbar() {
       <div className="navbar-container container-fluid">
         <Link to="/" className="navbar-brand">
           <div className="logo-container">
-            <img src={Logo} alt="" height={60} />
-            <h4>LWD Store</h4>
+            <img src={Logo} alt="" height={50} />
+            <h5>LWD Store</h5>
           </div>
         </Link>
 
