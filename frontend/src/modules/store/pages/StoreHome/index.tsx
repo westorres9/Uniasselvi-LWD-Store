@@ -1,12 +1,12 @@
 import Highligths from "../../components/Highligths";
-import InfoPaymentShippingBuys from "../../components/InfoPaymentShippingBuys";
 import MainCarousel from "../../components/MainCarousel";
+import CardIconList from "../../components/CardIconList";
 
 export default function StoreHome() {
   return (
     <>
       <MainCarousel />
-      <InfoPaymentShippingBuys />
+      <CardIconList />
       <Highligths title="Mais Vendidos" id={1}/>
       <img
         src="https://res.cloudinary.com/dm6it5mnf/image/upload/v1704748238/tool-store-pro/categories/pag2ydwvypo5txnduktc.png"
