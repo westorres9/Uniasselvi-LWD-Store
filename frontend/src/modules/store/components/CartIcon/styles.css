@@ -1,0 +1,27 @@
+.cart-icon-container {
+    width: 40px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-notification {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 50%;
+    font-size: 15px;
+    position: relative;
+    right: 5px;
+    bottom:8px
+}
+
+@media (min-width:576px) {
+    .cart-icon-container {
+        width: 45px;
+    }
+}

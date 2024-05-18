@@ -1,0 +1,14 @@
+.brand-title {
+    margin-top: 50px;
+}
+
+.brand-grid {
+    padding: 0px;
+    margin-right: 40px;
+}
+
+@media (min-width:576px) {
+    .brand-grid {
+        width: 100%;
+    }
+}

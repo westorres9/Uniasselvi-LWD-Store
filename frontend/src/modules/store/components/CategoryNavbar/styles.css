@@ -1,0 +1,34 @@
+.category-navbar {
+    color: #fff;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.category-navbar-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 0;
+}
+.category-navbar-item {
+    margin-right: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.category-navbar-item:hover {
+    font-weight: bold;
+}
+
+.bp-576 {
+    display: none;
+}
+
+@media (min-width: 576px) {
+    .bp-576 {
+        display: unset;
+    }
+}

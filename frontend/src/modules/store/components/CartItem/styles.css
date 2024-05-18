@@ -1,0 +1,109 @@
+.cart-item-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 960px;
+    background-color: white;
+    box-shadow: 1px 5px 10px rgba(0,0,0,0.25);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.cart-item-image-container {
+    min-width: 70px;
+    max-width: 100px;
+    margin: 5px;
+}
+
+.cart-item-image-container img {
+    width: 100%;
+}
+
+.cart-item-description-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 5px;
+}
+
+.cart-item-description-container h4 {
+    display: none;
+}
+
+.cart-item-description-container h2 {
+    margin-top: 30px;
+    font-size: 13px;
+}
+
+.cart-item-quantity {
+    border-radius: 0;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.cart-item-increase {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 10px;
+    border-radius: 10px 0 0 10px;
+}
+
+.cart-item-decrease {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 0 10px 10px 0;
+}
+
+.cart-quantity-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 10px 10px;
+    width: 100px;
+}
+
+@media (min-width: 576px) {
+    .cart-quantity-container {
+        margin: 20px 20px 10px;
+    }
+
+    .cart-item-quantity {
+        border-radius: 0;
+        padding: 5px 10px;
+    }
+
+    .cart-item-description-container h4 {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #ccc;
+    }
+
+    .cart-item-description-container h2 {
+        margin-top: 30px;
+        font-size: 24px;
+    }
+    
+    .cart-item-increase {
+        padding: 10px 15px;
+    }
+    
+    .cart-item-decrease {
+        padding: 10px 15px;
+    }
+}
+
+@media (min-width:768px) {
+    .cart-item-description-container h4 {
+        display: unset;
+    }
+
+    .cart-item-description-container h2 {
+        margin-top: 0px;
+    }
+}

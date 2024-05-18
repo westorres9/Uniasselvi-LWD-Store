@@ -1,0 +1,40 @@
+.category-card-list-container{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.category-title {
+    margin-top: 50px;
+}
+
+.category-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.category-item {
+    margin: auto;
+    width: 100%;
+}
+
+@media (min-width:576px) {
+    .category-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width:768px) {
+    .category-grid {
+        width: 100%;
+    }
+}

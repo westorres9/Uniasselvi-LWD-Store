@@ -1,0 +1,46 @@
+.admin-dashboard {
+    margin: 30px auto;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.dashboard-item {
+    width: 100%;
+    background-color: #FFF;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 1200px) {
+    .dashboard-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .dashboard-item {
+        max-width: 500px;
+        height: auto;
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .dashboard-item {
+        max-width: 800px;
+        height: auto;
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .dashboard-item {
+        max-width: 1000px;
+        height: auto;
+        margin-right: 10px;
+    }
+}

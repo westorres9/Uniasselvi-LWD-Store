@@ -1,0 +1,18 @@
+.admin-order-list {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.admin-order-add-button-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.admin-order-add-button-container button {
+    width: 150px;
+    color: #fff;
+}
+
+.page-navigation {
+    width: 320px;
+}
