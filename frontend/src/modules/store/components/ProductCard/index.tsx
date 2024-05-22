@@ -7,10 +7,10 @@ type Props = {
 };
 export default function ProductCard({ product }: Props) {
   return (
-    <Link to={`/product-details/${product.id}`}>
+    <Link to={`/product-details/${ product.id }`}>
       <div className="product-card-container">
         <div className="product-img-container">
-          <img src={product.imageUrl} alt="" />
+          <img src={ product.imageUrl } alt="" />
           <div className="sale-off-container">
             {
               product.saleOff && <span className="safe-off">OFERTA</span>
@@ -18,18 +18,17 @@ export default function ProductCard({ product }: Props) {
             {
               !product.available && <span className="unavailable">ESGOTADO</span>
             }
-            
           </div>
         </div>
         <div className="product-description-container">
-          <h5 className="text-secondary">{product.name}</h5>
+          <h5 className="text-secondary">{ product.name }</h5>
           <div className="product-price-container">
           {
-            product.saleOff && <span className="standard-price">R$ { (product.price + (product.price * 0.25)).toFixed(2)}</span>
+            product.saleOff && <span className="standard-price">R$ {(product.price + (product.price * 0.25)).toFixed(2)}</span>
           }
-          <h4 className="text-darkest">R$ {product.price.toFixed(2)}</h4>
+          <h4 className="text-darkest">R$ { product.price.toFixed(2) }</h4>
           </div>
-          <p>Ou 10 x R$ {(product.price / 10).toFixed(2)} sem juros</p>
+          <p>Ou 10 x R$ {( product.price / 10).toFixed(2) } sem juros</p>
           <div className="btn-card">
             <button className="btn btn-primary">VER MAIS</button>
           </div>

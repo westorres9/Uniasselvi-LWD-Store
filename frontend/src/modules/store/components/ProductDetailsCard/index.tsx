@@ -31,9 +31,12 @@ export default function ProductDetailsCard({ product }: Props) {
         <div className="product-details-price-container">
           <h6 className="text-secondary">{product.name.toUpperCase()}</h6>
           <p className="product-sku">{product.sku}</p>
-          <span className="product-details-standard-price">
-            R$ {product.price.toFixed(2)}
+          {
+            product.saleOff && <span className="product-details-standard-price">
+            R$ {(product.price + product.price * 0.25).toFixed(2)}
           </span>
+          }
+          
           <h4 className="text-darkest">R$ {product.price.toFixed(2)}</h4>
           <h6 className="product-parceled">
             Ou 10 x R$ {(product.price / 10).toFixed(2)} SEM JUROS

@@ -33,8 +33,14 @@
     height: 190px;
 }
 .product-description-container h5 {
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 0px;
+}
+
+.text-darkest {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .product-description-container .standard-price {
@@ -54,7 +60,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
 }
 
 .sale-off-container .safe-off {
